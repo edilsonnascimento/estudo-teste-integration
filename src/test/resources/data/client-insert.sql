@@ -1,0 +1,1 @@
+INSERT INTO client (full_name, zip_code, address) VALUES('Edilson do Nascimento', '85000-000', 'Rua B; N 1');

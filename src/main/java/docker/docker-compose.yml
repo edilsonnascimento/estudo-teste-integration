@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:8.0.34
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_DATABASE=integra_db
+      - MYSQL_ROOT_PASSWORD=integra_db
+volumes:
+  db:
