@@ -23,6 +23,7 @@ dependencies {
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.h2database:h2")
+    testImplementation("com.github.javafaker:javafaker:0.12")
 }
 
 tasks.withType<Test> {

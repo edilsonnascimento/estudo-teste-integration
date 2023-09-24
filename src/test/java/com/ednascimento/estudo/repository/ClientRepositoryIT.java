@@ -30,4 +30,16 @@ class ClientRepositoryIT extends IntegrationHelper {
         // Then
         assertThat(actual).isEqualTo(expected);
     }
+
+    void SHOULD_Created_A_Valid_Client() {
+
+        // Given
+
+
+        // When
+
+        // Then
+    }
+
+
 }
