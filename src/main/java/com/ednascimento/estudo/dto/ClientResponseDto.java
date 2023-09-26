@@ -1,6 +1,6 @@
 package com.ednascimento.estudo.dto;
 
-public record ClientDto(
+public record ClientResponseDto(
         Long idClient,
         String fullName,
         String zipCode,
