@@ -23,8 +23,10 @@ class ClientRepositoryIT extends IntegrationHelper {
 
         // Given
         var idCLient = 1L;
-        var expected = Optional.of(new ClientResponseDto(idCLient, "Edilson do Nascimento", "85000-000", "Rua B; N 1"));
-
+        var expected = Optional.of(new ClientResponseDto(idCLient,
+                                               "Edilson do Nascimento",
+                                                "85000-000",
+                                                "Rua B; N 1"));
         // When
         var actual = repository.find(idCLient);
 
@@ -33,12 +35,13 @@ class ClientRepositoryIT extends IntegrationHelper {
     }
 
     @Test
+    @Sql(value = "/data/client-trunc.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void WHEN_Creating_Client_which_GIVEN_Valid_Data_Must_Persist_On_DataBase() {
 
         // Given
         var dto = new ClientInDto(faker.name().fullName(),
-                                faker.address().zipCode(),
-                                faker.address().streetAddressNumber());
+                                  faker.address().zipCode(),
+                                  faker.address().streetAddressNumber());
         var expected = 1L;
 
         // When
