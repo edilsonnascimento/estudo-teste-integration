@@ -2,7 +2,7 @@ package com.ednascimento.estudo.repository;
 
 import com.ednascimento.estudo.dto.ClientInDto;
 import com.ednascimento.estudo.dto.ClientResponseDto;
-import com.ednascimento.estudo.helper.IntegrationHelper;
+import helper.TestIntegrationHelper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
@@ -11,14 +11,13 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ClientRepositoryIT extends IntegrationHelper {
+class ClientRepositoryIT extends TestIntegrationHelper {
 
     @Autowired
     private ClientRepository repository;
 
     @Test
     @Sql(value = "/data/client-insert.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(value = "/data/client-trunc.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void SHOULD_Find_Client_By_Id() {
 
         // Given
@@ -35,7 +34,6 @@ class ClientRepositoryIT extends IntegrationHelper {
     }
 
     @Test
-    @Sql(value = "/data/client-trunc.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void WHEN_Creating_Client_which_GIVEN_Valid_Data_Must_Persist_On_DataBase() {
 
         // Given

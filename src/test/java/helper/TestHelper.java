@@ -1,4 +1,4 @@
-package com.ednascimento.estudo.helper;
+package helper;
 
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Tag;

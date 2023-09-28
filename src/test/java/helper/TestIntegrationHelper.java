@@ -1,4 +1,4 @@
-package com.ednascimento.estudo.helper;
+package helper;
 
 import org.junit.jupiter.api.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @ActiveProfiles("test")
 @Tag("integration")
-public class IntegrationHelper extends TestHelper{
+public abstract class TestIntegrationHelper extends TestHelper{
     @Autowired
     protected MockMvc mockMvc;
     @Autowired
