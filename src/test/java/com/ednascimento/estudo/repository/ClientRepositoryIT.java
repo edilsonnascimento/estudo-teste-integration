@@ -2,6 +2,7 @@ package com.ednascimento.estudo.repository;
 
 import com.ednascimento.estudo.entity.Client;
 import helper.TestIntegrationHelper;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
@@ -14,6 +15,11 @@ class ClientRepositoryIT extends TestIntegrationHelper {
 
     @Autowired
     private ClientRepository repository;
+
+    @AfterEach
+    void tearDown() {
+        repository.deletedAll();
+    }
 
     @Test
     @Sql(value = "/data/client-insert.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)

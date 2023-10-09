@@ -4,9 +4,7 @@ import com.ednascimento.estudo.entity.Address;
 import com.ednascimento.estudo.entity.Client;
 import com.ednascimento.estudo.service.FindAddressService;
 import helper.TestIntegrationHelper;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.jdbc.Sql;
@@ -21,13 +19,17 @@ class ClientControllerIT extends TestIntegrationHelper {
     @MockBean
     private FindAddressService findAddresService;
 
-
     @Test
     @Sql(value = "/data/client-trunc.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void GIVEN_Valid_Payload_MUST_Return_Created_Client() {
 
         // Given
-        var address = new Address("8320000", "Rua da paz", "casa", "Centro", "Torino", "PR");
+        var address = new Address(faker.address().zipCode(),
+                                  faker.address().streetAddressNumber(),
+                                  faker.superhero().name(),
+                                  faker.address().stateAbbr(),
+                                  faker.address().cityName(),
+                                  faker.address().stateAbbr());
         when(findAddresService.find(anyString())).thenReturn(address);
         var client = new Client(
                 faker.number().randomDigit(),

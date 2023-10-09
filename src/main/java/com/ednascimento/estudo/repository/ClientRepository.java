@@ -9,4 +9,5 @@ public interface ClientRepository {
     Optional<Client> find(Integer idClient);
     Integer create(Client client);
     Optional<List<Client>> findAll();
+    void deletedAll();
 }

@@ -69,4 +69,10 @@ public class ClientRepositoryImpl implements ClientRepository {
                                resultSet.getString("address"))
                 ));
     }
+
+    @Override
+    public void deletedAll() {
+        var sql = "TRUNCATE TABLE client";
+        jdbcTemplate.update(sql, new MapSqlParameterSource());
+    }
 }
