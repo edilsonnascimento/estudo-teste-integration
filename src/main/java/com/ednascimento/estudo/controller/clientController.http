@@ -1,0 +1,16 @@
+### Listar Clientes
+GET http://localhost:8080/clients
+Accept: application/json
+
+### Cadastar Cliente
+POST http://localhost:8080/clients
+Content-Type: application/json
+
+{
+    "fullName": "Tessa Ria",
+    "zipCode": "83707200"
+}
+
+### Buscar Cliente por Id do CLient
+GET http://localhost:8080/clients/30
+Accept: application/json

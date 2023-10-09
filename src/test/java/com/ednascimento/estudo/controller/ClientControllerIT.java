@@ -1,6 +1,6 @@
 package com.ednascimento.estudo.controller;
 
-import com.ednascimento.estudo.dto.ClientInDto;
+import com.ednascimento.estudo.entity.Client;
 import helper.TestIntegrationHelper;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
@@ -19,7 +19,9 @@ class ClientControllerIT extends TestIntegrationHelper {
     void GIVEN_Valid_Payload_MUST_Return_Created_Client() throws Exception {
 
         // Given
-        var dto = new ClientInDto(faker.name().fullName(),
+        var client = new Client(
+                                  faker.number().randomDigit(),
+                                  faker.name().fullName(),
                                   faker.address().zipCode(),
                                   faker.address().streetAddressNumber());
         var payload =
@@ -29,7 +31,7 @@ class ClientControllerIT extends TestIntegrationHelper {
                     "ziCode": "%s",
                     "address": "%s"
                 }
-                """.formatted(dto.fullName(), dto.zipCode(), dto.address());
+                """.formatted(client.fullName(), client.zipCode(), client.address());
         // When
         mockMvc
                 .perform(post(URI_PATH)

@@ -1,11 +1,12 @@
 package com.ednascimento.estudo.repository;
 
-import com.ednascimento.estudo.dto.ClientInDto;
-import com.ednascimento.estudo.dto.ClientResponseDto;
+import com.ednascimento.estudo.entity.Client;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ClientRepository {
-    Optional<ClientResponseDto> find(Long idClient);
-    Long create(ClientInDto dto);
+    Optional<Client> find(Integer idClient);
+    Integer create(Client client);
+    Optional<List<Client>> findAll();
 }
